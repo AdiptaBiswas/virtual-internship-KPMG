@@ -33,9 +33,6 @@
 
 # ####  Ages histogram 
 
-# In[242]:
-
-
 fig = plt.figure(figsize = (8,6))
 axes = fig.gca()
 new_cust_df.hist('Age', bins=55, ax=axes, color='#0504ca', rwidth=0.85, alpha=0.8);
@@ -43,7 +40,6 @@ plt.title('Age Distribution', fontsize = 15);
 plt.xlabel('Age', fontsize = 15);
 plt.ylabel('Number of customers', fontsize = 15)
 plt.tight_layout()
-
 
 # **Observations**: 
 # 
@@ -55,9 +51,6 @@ plt.tight_layout()
 
 # #### Number of customers vs. Gender 
 
-# In[184]:
-
-
 plt.figure(figsize=[6,4])
 sns.countplot(x='gender', data=new_cust_df);
 plt.title('Distribution of Gender', fontsize = 15);
@@ -65,16 +58,12 @@ plt.xlabel('Gender', fontsize = 15);
 plt.ylabel('Number of customers', fontsize = 15)
 plt.tight_layout()
 
-
 # **Observations**: 
 # 
 # * As per the data being provided, it is seen that there are a greater number of `Females` than other genders
 # * The label `U` denotes the `Unknown` gender class
 
 # #### Coverage of Gender on Age Distribution
-
-# In[241]:
-
 
 plt.figure(figsize=[8,4])
 plt.hist('Age', data=new_cust_df[new_cust_df['gender'] == 'Male'], alpha=0.5, label='Male', color = '#0504aa',
@@ -85,15 +74,11 @@ plt.title('Age and Gender Distribution', fontsize = 15);
 plt.xlabel('Age', fontsize = 15);
 plt.legend();
 
-
 # **Observations**: 
 # 
 # * The `Males` are seen to be younger in this data 
 # * The majority of `Females` fall in the middle and majority of the distribution
 # * Number of aged `Females` are more than the aged `Males`
-
-# In[228]:
-
 
 def Plots(x, color, title, xlab, ylab, *size):
     plt.figure(figsize=size)
@@ -103,14 +88,9 @@ def Plots(x, color, title, xlab, ylab, *size):
     plt.ylabel(ylab, fontsize = 15)
     plt.tight_layout()
 
-
 # #### Wealth Segment 
 
-# In[229]:
-
-
 Plots("wealth_segment","deeppink","Wealth Class Distribution","Wealth Class","Number of customers",6,4)
-
 
 # **Observations**: 
 # 
@@ -118,9 +98,6 @@ Plots("wealth_segment","deeppink","Wealth Class Distribution","Wealth Class","Nu
 # * The number of customers under `Affleunt Customers` and `High New Worth Customers` are almost equal
 
 # #### Job Industry
-
-# In[240]:
-
 
 Plots("job_industry_category","orange","Job Industry Distribution","Industry","Number of customers",13,4)
 
@@ -132,19 +109,12 @@ Plots("job_industry_category","orange","Job Industry Distribution","Industry","N
 
 # #### State Distribution
 
-# In[249]:
-
-
 Plots("state","lime","State Distribution","State","Number of customers",6,4)
-
 
 # **Observations**: 
 # 
 # * There are a major number of customers from `NSW` in the data
 # * The number of customers from `Victoria` and `New South Wales` are the least
-
-# In[259]:
-
 
 fig = plt.figure(figsize = (6,4))
 axes = fig.gca()
@@ -154,7 +124,6 @@ plt.xlabel('Property Valuation', fontsize = 15);
 plt.ylabel('Number of customers', fontsize = 15)
 plt.tight_layout()
 
-
 # **Observations**: 
 # 
 # * Majority of the customers in the data have a `property valuation` ranging between `7 - 8`
@@ -163,13 +132,9 @@ plt.tight_layout()
 
 # #### Customers having cars? 
 
-# In[264]:
-
-
 plt.figure(figsize=[6,4])
 sns.countplot(x='owns_car', data=new_cust_df);
 plt.title('Customers having cars', fontsize = 15);
 plt.xlabel('Car owners', fontsize = 15);
 plt.ylabel('Number of customers', fontsize = 15)
 plt.tight_layout()
-
