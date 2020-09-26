@@ -35,8 +35,6 @@
 
 # ####  Correlation Matrix, an overall view
 
-# In[11]:
-
 
 mat = new_cust_df.corr()
 mas = np.triu(np.ones_like(mat, dtype=bool))
@@ -44,13 +42,10 @@ col = sns.color_palette("gnuplot2")
 sns.heatmap(mat, mask=mas, cmap=col, vmax=.3, center=0,
             square=True, linewidths=.5, cbar_kws={"shrink": .5})
 
-
 # **Observations**: 
 # 
 # * It's seen that `Tenure` and `Age` are highly correlated, i.e `Tenure` increases along with `Age`
 # * The `Past 3 years purchases` feature has strong correlation with `Property valuation`
-
-# In[12]:
 
 
 def box(x,y,color,xlab,ylab):
@@ -60,12 +55,9 @@ def box(x,y,color,xlab,ylab):
 
 # #### Bike purchase in 3 years vs. Wealth Segment Distribution 
 
-# In[13]:
-
 
 box("wealth_segment", "past_3_years_bike_related_purchases", "darkturquoise", 
     "Wealth Class", "Bike purchases - 3 Years")
-
 
 # **Observations**: 
 # 
@@ -75,9 +67,6 @@ box("wealth_segment", "past_3_years_bike_related_purchases", "darkturquoise",
 # * The distributions are spreaded with a range of `≈100` 3 years purchases 
 
 # #### Bike purchase in 3 years vs. Gender 
-
-# In[14]:
-
 
 box("gender", "past_3_years_bike_related_purchases", "mediumpurple", "Gender", 
     "Bike purchases - 3 Years")
@@ -93,11 +82,9 @@ box("gender", "past_3_years_bike_related_purchases", "mediumpurple", "Gender",
 
 # In[15]:
 
-
 ax = sns.barplot(y="job_industry_category", x="past_3_years_bike_related_purchases", 
                  data=new_cust_df, palette="husl")
 ax.set(xlabel="Bike purchases - 3 Years", ylabel = "Job Industry")
-
 
 # **Observations**: 
 # 
@@ -108,9 +95,6 @@ ax.set(xlabel="Bike purchases - 3 Years", ylabel = "Job Industry")
 # * The `Telecommunications` purchase data is the least reliabe. The distribution is not tight.
 
 # #### Bike purchase in 3 years vs. State 
-
-# In[16]:
-
 
 ax = sns.catplot(y="state",x="past_3_years_bike_related_purchases",data=new_cust_df, palette="Paired")
 ax.set(xlabel="Bike purchases - 3 Years", ylabel = "State")
@@ -125,9 +109,6 @@ ax.set(xlabel="Bike purchases - 3 Years", ylabel = "State")
 
 # #### Bike purchase in 3 years vs. Own cars 
 
-# In[24]:
-
-
 ax = sns.catplot(y="owns_car", x="past_3_years_bike_related_purchases", kind="bar", data=new_cust_df)
 ax.set(xlabel="Bike purchases - 3 Years", ylabel = "Own cars")
 
@@ -138,18 +119,11 @@ ax.set(xlabel="Bike purchases - 3 Years", ylabel = "Own cars")
 
 # *`Point Biserial`* correlation of purchase rate against the categories
 
-# In[13]:
-
-
 encode = LabelEncoder()
 new_cust_df["Cars_bool"] = encode.fit_transform(new_cust_df["owns_car"])
 new_cust_df_corr = new_cust_df[["past_3_years_bike_related_purchases", "owns_car", "Cars_bool"]]
 new_cust_df_corr.rename(columns={"past_3_years_bike_related_purchases": "Bike purchases - 3 Years", 
                                  "Cars_bool": "Own cars"}, inplace = True)
-
-
-# In[14]:
-
 
 new_cust_df_corr.corr()
 
@@ -160,8 +134,6 @@ new_cust_df_corr.corr()
 # * The correlation between Bike purchase in 3 years and customers owning cars is `-0.009`
 
 # ####  Bike purchase in 3 years vs. Product Size (Other)
-
-# In[15]:
 
 
 ax = sns.catplot(y="product_line",x="past_3_years_bike_related_purchases",data=old_cust_df)
@@ -175,9 +147,6 @@ ax.set(xlabel="Bike purchases - 3 Years", ylabel = "Product Line")
 # * The distribution for `Touring` bikes are sparse due to less data-points
 
 # By: *`Adipta`*
-
-# In[ ]:
-
 
 
 
