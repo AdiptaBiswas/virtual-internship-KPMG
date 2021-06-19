@@ -1,5 +1,5 @@
-### KPMG Analytics - Virtual Internship
+## KPMG Analytics - Virtual internship
 
-"KPMG Australia Data Analytics Virtual Internship" 
-
-@ Find the Notebs, Chart vizs and other relevant docx in this repository
+- KPMG Australia Data analytics virtual internship done under Forage.
+- Data analysis, visualizations and predictions on an objective.
+- Find notes, chart vizs and other relevant docx in this repository.
